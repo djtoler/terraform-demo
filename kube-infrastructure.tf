@@ -19,7 +19,7 @@ resource "aws_subnet" "public_subnet1" {
   availability_zone = "us-east-1a"
 
   tags = {
-    Name = "Public Subnet 1"
+    Name = "Public Subnet 1Demo"
     "kubernetes.io/role/elb" = 1
   }
 }
@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet2" {
   availability_zone = "us-east-1b"
 
   tags = {
-    Name = "Public Subnet 2"
+    Name = "Public Subnet 2Demo"
     "kubernetes.io/role/elb" = 1
   }
 }
