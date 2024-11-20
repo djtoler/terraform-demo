@@ -95,3 +95,23 @@ resource "aws_route_table_association" "private_rta2" {
   subnet_id      = aws_subnet.private_subnet2.id
   route_table_id = aws_route_table.private_route_table.id
 }
+
+output "subnet_ids" {
+  value = [
+    aws_subnet.public_subnet1.id,
+    aws_subnet.public_subnet2.id,
+    aws_subnet.private_subnet1.id,
+    aws_subnet.private_subnet2.id,
+  ]
+}
+
+resource "local_file" "subnet_ids_file" {
+  content = join("\n", [
+    aws_subnet.public_subnet1.id,
+    aws_subnet.public_subnet2.id,
+    aws_subnet.private_subnet1.id,
+    aws_subnet.private_subnet2.id,
+  ])
+  filename = "subnets.txt"
+}
+
